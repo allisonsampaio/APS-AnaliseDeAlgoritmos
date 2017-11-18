@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <time.h>
 
 unsigned int PseudoRand()
 {
@@ -17,6 +18,9 @@ unsigned int PseudoRand()
 }
 
 int main( int argc, char *argv[ ] ){
+	
+	float tempo_inicial = clock();
+
 	
 	int tam = atoi(argv[1]); 
 
@@ -50,12 +54,21 @@ int main( int argc, char *argv[ ] ){
 			}
 		}
 	}
+	
+	
+	float tempo_final = clock();
+
+	float resultado = tempo_final - tempo_inicial;
+	
+	
 	int b;
 	
 	for (b = 0; b < tam; b++){
 		printf("vetor[%d]: %d\n", b, v[b]);
 	}
-	printf("Maior soma: %d \ninicio: %d \nfim: %d", Msoma, inicio, fim);
+	printf("Maior soma: %d \ninicio: %d \nfim: %d\n", Msoma, inicio, fim);
+	printf("\n");
+	printf("Tempo de relógio: %3.f\n", resultado);
 
 	return 0;	
 }
