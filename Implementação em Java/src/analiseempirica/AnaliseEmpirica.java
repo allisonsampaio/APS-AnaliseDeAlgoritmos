@@ -15,11 +15,10 @@ public class AnaliseEmpirica {
         }
         
         MaxSubArray msb = new MaxSubArray();
+        //int[] ar = { -10, -8, -3, -7, -2, -7, -3, -9 };
+        msb.dynamicProgramming(array);
         
-        int[] a = msb.enumeration(array);
-        System.out.println(a[0]+", "+a[1]+", "+a[2]);
-        
-        a = msb.betterEnumeration(array);
+        int[] a = msb.betterEnumeration(array);
         System.out.println(a[0]+", "+a[1]+", "+a[2]);
         
         a = msb.divideAndConquer(array);
