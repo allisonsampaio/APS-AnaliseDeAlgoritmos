@@ -112,4 +112,47 @@ public class MaxSubArray {
         
         return retorno;
     }
+    /*
+    // Kadane's Algorithm
+    public int dynamicProgramming(int[] arr) {
+        int maxEndHere = arr[0];
+        int maxSoFar = arr[0];
+        for(int i=1;i<arr.length;i++){
+            maxEndHere = Math.max(arr[i], maxEndHere+arr[i]);
+            maxSoFar = Math.max(maxSoFar,maxEndHere);
+        }
+        return maxSoFar;
+    }
+    */
+    //https://gist.github.com/arunma/3624849
+    public void dynamicProgramming(int[] inputArray){
+
+        int maxStartIndex=0;
+        int maxEndIndex=0;
+        int maxSum = 0; 
+
+        int cumulativeSum= 0;
+        int maxStartIndexUntilNow=0;
+        		
+        for (int currentIndex = 0; currentIndex < inputArray.length; currentIndex++) {
+        	
+            int eachArrayItem = inputArray[currentIndex];
+            
+            cumulativeSum+=eachArrayItem;
+
+            if(cumulativeSum>maxSum){
+                maxSum = cumulativeSum;
+                maxStartIndex=maxStartIndexUntilNow;
+                maxEndIndex = currentIndex;
+            }
+            else if (cumulativeSum<0){
+            	maxStartIndexUntilNow=currentIndex+1;
+            	cumulativeSum=0;
+            }
+        }
+
+        System.out.println("Max sum         : "+maxSum);
+        System.out.println("Max start index : "+maxStartIndex);
+        System.out.println("Max end index   : "+maxEndIndex);
+    }
 }
