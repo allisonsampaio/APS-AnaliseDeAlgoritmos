@@ -14,11 +14,13 @@ public class AnaliseEmpirica {
     public static void main(String[] args) throws IOException {
         
         RandomArray ra = new RandomArray();
-        int [] array = ra.generate(131072, 128);
+        int [] array = ra.generate(10, 128, 0);
         FileWriter entradas = new FileWriter("entradas.txt");
         PrintWriter pw = new PrintWriter(entradas);
+        System.out.println("array:");
         for (int i : array) {
-            pw.println(i);
+            //pw.println(i);
+            System.out.println(i);
         }
         
         MaxSubArray msb = new MaxSubArray();
