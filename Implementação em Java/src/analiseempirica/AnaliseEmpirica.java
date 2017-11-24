@@ -1,17 +1,24 @@
 package analiseempirica;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 /**
  *
  * @author rodrigo
  */
 public class AnaliseEmpirica {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
         RandomArray ra = new RandomArray();
-        //ra.setSeed(139);
-        int [] array = ra.generate(10, 10);
+        int [] array = ra.generate(131072, 128);
+        FileWriter entradas = new FileWriter("entradas.txt");
+        PrintWriter pw = new PrintWriter(entradas);
         for (int i : array) {
-            System.out.println(i);
+            pw.println(i);
         }
         
         MaxSubArray msb = new MaxSubArray();
