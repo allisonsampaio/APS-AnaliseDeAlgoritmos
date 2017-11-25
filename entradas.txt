@@ -1,1 +1,11 @@
-Utilizar no random potências de 2 e entradas de mil em mil
+teste
+-89
+-124
+-54
+-99
+76
+58
+72
+117
+-85
+25
