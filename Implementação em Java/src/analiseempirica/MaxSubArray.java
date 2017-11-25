@@ -7,50 +7,63 @@ import java.util.ArrayList;
  */
 public class MaxSubArray {
     
-    public int[] enumeration(int[] v){
+    public void enumeration(int[] v){
         int soma = 0;
-        int[] retorno = new int[3];
-        retorno[0] = v[0];
+        //int[] retorno = new int[3];
+        //retorno[0] = v[0];
+        int max = v[0];
+        int start = 0;
+        int end = 0;
         
         for (int i = 0; i < v.length; i++) {
-            for (int j = 0; j < v.length; j++) {
+            for (int j = i; j < v.length; j++) {
                 for (int k = i; k <= j; k++) {
                     soma+=v[k];
                 }
-                if (soma > retorno[0]) {
-                    retorno[0] = soma;
-                    retorno[1] = i;
-                    retorno[2] = j;
+                if (soma > max) {
+                    max = soma;
+                    start = i;
+                    end = j;
                 }
                 soma=0;
             }
         }
-        return retorno;
+        System.out.println("Max: "+max);
+        System.out.println("Start: "+start);
+        System.out.println("End: "+end);
     }
     
-    public int[] betterEnumeration(int[] v){
+    public void betterEnumeration(int[] v){
         int soma = 0;
-        int[] retorno = new int[3];
-        retorno[0] = v[0];
+        //int[] retorno = new int[3];
+        //retorno[0] = v[0];
+        int max = v[0];
+        int start = 0;
+        int end = 0;
         
         
         for (int i = 0; i < v.length; i++) {
             for (int j = i; j < v.length; j++) {
                 soma+=v[j];
                 
-                if(soma > retorno[0]){
-                    retorno[0] = soma;
-                    retorno[1]=i;
-                    retorno[2]=j;
+                if(soma > max){
+                    max = soma;
+                    start=i;
+                    end=j;
                 }
             }
             soma=0;
         }
-        return retorno;
+        System.out.println("Max: "+max);
+        System.out.println("Start: "+start);
+        System.out.println("End: "+end);
     }
     
-    public int[] divideAndConquer(int[] v){
-        return maxSubArray(v, 0, v.length-1);
+    public void divideAndConquer(int[] v){
+        int[] r = maxSubArray(v, 0, v.length-1);
+        System.out.println("Max: "+r[2]);
+        System.out.println("Start: "+r[0]);
+        System.out.println("End: "+r[1]);
     }
     
     private int[] maxSubArray(int[] v, int e, int d){
@@ -129,7 +142,7 @@ public class MaxSubArray {
 
         int maxStartIndex=0;
         int maxEndIndex=0;
-        int maxSum = 0; 
+        int maxSum = inputArray[0]; 
 
         int cumulativeSum= 0;
         int maxStartIndexUntilNow=0;
