@@ -6,6 +6,8 @@
 #include <time.h>
 #include <math.h>
 
+ //definir seed
+
 unsigned int pseudorand()
 {
 
