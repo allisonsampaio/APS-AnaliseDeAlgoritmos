@@ -16,7 +16,7 @@ public class AnaliseEmpirica {
         
         RandomArray ra = new RandomArray();
         //ra.setSeed(139);
-        int [] array = ra.generate((int) Math.pow(2, 11), 128, 1);
+        int [] array = ra.generate((int) Math.pow(2, 11), 128);
         FileWriter entradas = new FileWriter("../entradas.txt");
         PrintWriter pw = new PrintWriter(entradas);
         /*
