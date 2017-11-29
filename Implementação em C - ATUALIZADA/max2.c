@@ -1,4 +1,4 @@
-/* Subvetor Máximo - Versão Interativa
+/* Subvetor Máximo - Versão Iterativa
 */
 
 #include <stdio.h>
