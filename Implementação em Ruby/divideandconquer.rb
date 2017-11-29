@@ -74,4 +74,17 @@ def max_cross(arr)
   right_sum + left_sum
 end
 
-p max_subarr(Array.new(1000000) { rand(0...200) - 100 })
+arr = []
+i=0
+n = 2**20
+File.open("../entradas/entrada1.txt", "r") do |f|
+  f.each_line do |line|
+    if i == n then
+      break
+    end
+    arr << line.to_i
+    i += 1
+  end
+end
+
+p max_subarr(arr)
