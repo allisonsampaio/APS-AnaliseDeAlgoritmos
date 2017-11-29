@@ -23,7 +23,7 @@ public class AnaliseEmpirica {
         //ra.setSeed(139);
         int n = (int) Math.pow(2, 20);
         //Entradas.escrever(ra.generate(n, 128), "../entradas/entrada5.txt");
-        int [] array =Entradas.ler("../entradas/entrada1.txt", 200000);
+        int [] array =Entradas.ler("../entradas/entrada1.txt", n);
         
         MaxSubArray msb = new MaxSubArray();
         

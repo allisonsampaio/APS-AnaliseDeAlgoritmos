@@ -29,4 +29,8 @@ File.open("../entradas/entrada1.txt", "r") do |f|
   end
 end
 
-p subarray_sum(arr)
+Benchmark.bm(20) do |bm|  # The 20 is the width of the first column in the output.
+    bm.report("Tempo: ") { 
+      subarray_sum(arr)
+    }
+end
