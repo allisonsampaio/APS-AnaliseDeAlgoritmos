@@ -1,10 +1,15 @@
 package analiseempirica;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.Clock;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Scanner;
 
 /**
  *
@@ -16,25 +21,17 @@ public class AnaliseEmpirica {
         
         RandomArray ra = new RandomArray();
         //ra.setSeed(139);
-        int [] array = ra.generate((int) Math.pow(2, 11), 128);
-        FileWriter entradas = new FileWriter("../entradas.txt");
-        PrintWriter pw = new PrintWriter(entradas);
-        /*
-        System.out.println("array:");
-        for (int i : array) {
-            pw.println(i);
-            System.out.println(i);
-        }
-        pw.close();
-        */
-                
+        int n = (int) Math.pow(2, 20);
+        //Entradas.escrever(ra.generate(n, 128), "../entradas/entrada5.txt");
+        int [] array =Entradas.ler("../entradas/entrada1.txt", 200000);
+        
         MaxSubArray msb = new MaxSubArray();
         
         long startTime = System.currentTimeMillis();
         long startCpuTime = Times.getCpuTime();
         long startUserTime = Times.getUserTime();
         long startSystemTime = Times.getSystemTime();
-        msb.dynamicProgramming(array);
+        msb.divideAndConquer(array);
         System.out.println("\nTimes:");
         System.out.println("Clock time: "+ (System.currentTimeMillis()-startTime) +" ms");
         System.out.println("CPU time: "+(Times.getCpuTime()-startCpuTime)/1000000 +" ms");
