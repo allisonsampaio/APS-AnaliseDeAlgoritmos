@@ -1,4 +1,5 @@
 #https://codereview.stackexchange.com/questions/105561/producing-and-comparing-maximum-sub-array-sum-algorithms
+import time
 
 #cubic brute force O(n^3)
 def max_subarray_cubic(array):
@@ -60,11 +61,15 @@ ent = arq.readlines()
 arr = []
 n=0
 for linha in ent:
-	if n == 100:
+	if n == 2**9:
 		break
 	arr.append(int(linha))
 	n+=1
 arq.close()
 
-print(max_subarray_kadane(arr))
+cpu = time.process_time()
+perf = time.perf_counter()
+print(max_subarray_cubic(arr))
+print("CPU time: ", time.process_time() - cpu)
+print("Perf Counter time: ", time.perf_counter() - perf)
 #print(max_subarray_div_conquer(arr, 0, len(arr)-1))
