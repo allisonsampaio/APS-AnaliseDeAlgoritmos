@@ -3,7 +3,7 @@
 #cubic brute force O(n^3)
 def max_subarray_cubic(array):
     maximum = float('-inf')
-    for i in range(1, len(array)):
+    for i in range(0, len(array)):
         for j in range(i, len(array)):
             current_sum = 0
             for k in range(i, j):
@@ -54,3 +54,17 @@ def max_subarray_kadane(array):
         current = max(x, current + x)
         maximum = max(maximum, current)
     return maximum
+
+arq = open('../entradas/entrada1.txt', 'r')
+ent = arq.readlines()
+arr = []
+n=0
+for linha in ent:
+	if n == 100:
+		break
+	arr.append(int(linha))
+	n+=1
+arq.close()
+
+print(max_subarray_kadane(arr))
+#print(max_subarray_div_conquer(arr, 0, len(arr)-1))
