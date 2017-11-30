@@ -6,18 +6,6 @@
 #include <time.h>
 #include <math.h>
 
- //definir seed
-
-unsigned int pseudorand()
-{
-
-    static unsigned int seed = 2048;
-
-    seed = (8253729 * seed + 2396403);
-
-    return seed  % 32767;
-}
-
 int max(int a, int b)
 {
     if(a>b)
@@ -59,36 +47,101 @@ int max_subarray(int array[], int n)
 	return aux;
 }
 
-int main(int argc, char const *argv[])
-{
-	float tempo_inicial = clock();
-
-	int tam = atoi(argv[1]);
-
-	int array[tam];
-	srand (1);
+int arquivo1(int tam){
 
 	int i;
+	int array[tam];
 
-	for (i = 0; i<tam; i++)
-	{
-		array[i] = pseudorand()%200 - 100;
+	FILE *file;
+	file = fopen("..\\entradas\\entrada1.txt","r"); //Definir cada arquivo de entrada
+
+	for(i=0;i<tam;i++){
+		fscanf(file,"%d",&array[i]);
 	}
 
-    int sum = 0;
+	fclose(file);
 
-	sum = max_subarray(array,4);
+	return(max_subarray(array,tam));
+}
 
-	float tempo_final = clock();
+int arquivo2(int tam){
 
-	for (i = 0; i<tam; i++){
-		printf("[%d]: %d\n", i, array[i]);
+	int i;
+	int array[tam];
+
+	FILE *file;
+	file = fopen("..\\entradas\\entrada2.txt","r"); //Definir cada arquivo de entrada
+
+	for(i=0;i<tam;i++){
+		fscanf(file,"%d",&array[i]);
 	}
 
-	float resultado = tempo_final - tempo_inicial;
+	fclose(file);
 
-	printf(" SOMA = %d \n",sum);
-	printf(" TEMPO =  %f\n", resultado);
+	return(max_subarray(array,tam));
+}
+
+int arquivo3(int tam){
+
+	int i;
+	int array[tam];
+
+	FILE *file;
+	file = fopen("..\\entradas\\entrada3.txt","r"); //Definir cada arquivo de entrada
+
+	for(i=0;i<tam;i++){
+		fscanf(file,"%d",&array[i]);
+	}
+
+	fclose(file);
+
+	return(max_subarray(array,tam));
+}
+
+int arquivo4(int tam){
+
+	int i;
+	int array[tam];
+
+	FILE *file;
+	file = fopen("..\\entradas\\entrada4.txt","r"); //Definir cada arquivo de entrada
+
+	for(i=0;i<tam;i++){
+		fscanf(file,"%d",&array[i]);
+	}
+
+	fclose(file);
+
+	return(max_subarray(array,tam));
+}
+
+int arquivo5(int tam){
+
+	int i;
+	int array[tam];
+
+	FILE *file;
+	file = fopen("..\\entradas\\entrada5.txt","r"); //Definir cada arquivo de entrada
+
+	for(i=0;i<tam;i++){
+		fscanf(file,"%d",&array[i]);
+	}
+
+	fclose(file);
+
+	return(max_subarray(array,tam));
+}
+
+int main(int argc, char const *argv[])
+{
+
+	int tam = 10000; //Tamanho máximo de elementos em cada entrada: 1048576
+
+	printf("%d\n",arquivo1(tam));
+	printf("%d\n",arquivo2(tam));
+	printf("%d\n",arquivo3(tam));
+	printf("%d\n",arquivo4(tam));
+	printf("%d\n",arquivo5(tam));
 
 	return 0;
 }
