@@ -56,20 +56,20 @@ def max_subarray_kadane(array):
         maximum = max(maximum, current)
     return maximum
 
-arq = open('../entradas/entrada1.txt', 'r')
+arq = open('../entradas/entrada4.txt', 'r')
 ent = arq.readlines()
 arr = []
 n=0
 for linha in ent:
-	if n == 2**9:
+	if n == 2**7:
 		break
 	arr.append(int(linha))
 	n+=1
 arq.close()
 
-cpu = time.process_time()
 perf = time.perf_counter()
-print(max_subarray_cubic(arr))
-print("CPU time: ", time.process_time() - cpu)
-print("Perf Counter time: ", time.perf_counter() - perf)
+cpu = time.process_time()
+max_subarray_cubic(arr)
+print("cpu: ", (time.process_time() - cpu))
+print("time: ", (time.perf_counter() - perf))
 #print(max_subarray_div_conquer(arr, 0, len(arr)-1))

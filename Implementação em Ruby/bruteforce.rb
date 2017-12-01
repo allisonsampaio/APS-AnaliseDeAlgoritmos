@@ -13,10 +13,9 @@ end
 
 arr = []
 i=0
-n = 2**10
 File.open("../entradas/entrada1.txt", "r") do |f|
   f.each_line do |line|
-    if i == n then
+    if i == 2**10 then
       break
     end
     arr << line.to_i
