@@ -42,7 +42,7 @@ def max_subarray_div_conquer(array, low, high):
   if low == high:
     return array[low]
   else:
-    mid = (low + high) / 2
+    mid = int((low + high) / 2)
     return max(max_subarray_div_conquer(array, low, mid), 
                max_subarray_div_conquer(array, mid + 1, high),
                max_cross_sum(array, low, mid, high))
@@ -56,12 +56,12 @@ def max_subarray_kadane(array):
         maximum = max(maximum, current)
     return maximum
 
-arq = open('../entradas/entrada4.txt', 'r')
+arq = open('../entradas/entrada1.txt', 'r')
 ent = arq.readlines()
 arr = []
 n=0
 for linha in ent:
-	if n == 2**7:
+	if n == 2**13:
 		break
 	arr.append(int(linha))
 	n+=1
@@ -69,7 +69,6 @@ arq.close()
 
 perf = time.perf_counter()
 cpu = time.process_time()
-max_subarray_cubic(arr)
+max_subarray_kadane(arr)
 print("cpu: ", (time.process_time() - cpu))
 print("time: ", (time.perf_counter() - perf))
-#print(max_subarray_div_conquer(arr, 0, len(arr)-1))
