@@ -1,2 +1,5 @@
-# APS-AnaliseDeAlgoritmos
-Análise empírica de algoritmos 
+APS - Análise de Algoritmos
+
+ALLISON ALFREDO DE OLIVEIRA SAMPAIO
+MARA LUCI LEITE GOULART
+RODRIGO PAULA DA SILVA	
