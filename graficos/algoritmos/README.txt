@@ -1,0 +1,1 @@
+Comparação (Entrada x Tamanho) de cada Linguagem dado um Algoritmo
