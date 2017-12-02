@@ -1,1 +1,1 @@
-Comparação (Entrada x Tamanho) de cada Linguagem dado um Algoritmo
+Comparação (Tamanho x Tempo) de cada Linguagem dado um Algoritmo
