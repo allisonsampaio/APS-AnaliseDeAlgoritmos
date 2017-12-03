@@ -1,0 +1,115 @@
+
+
+
+\begin{algorithm}
+\caption{Enumeration}
+\label{algo:preencheprimeiroarranjo}
+\begin{algorithmic}[1]
+    \Function{enumeratio}{$v$}
+        \State  $soma \gets 0$
+        \State $max \gets v[1]$
+        \For{i in 1..n}
+            \For{j in i..n}
+                \For{k in i..j}
+                    \State $soma \gets soma+v[k]$
+                \EndFor
+                \If{$soma > max$}
+                    \State $max \gets soma$
+                    \State $start, end \gets i, j$
+                \EndIf
+            \EndFor
+        \EndFor
+        \State \Return $(max, start, end)$
+    \EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+
+
+\begin{algorithm}
+\caption{Better Enumeration}
+\label{algo:preencheprimeiroarranjo}
+\begin{algorithmic}[1]
+    \Function{better-enumeration}{$v$}
+        \State  $soma \gets 0$
+        \State $max \gets v[1]$
+        \For{i in 1..n}
+            \For{j in i..n}
+                \State $soma \gets soma+v[j]$
+                \If{$soma > max$}
+                    \State $max \gets soma$
+                    \State $start, end \gets i, j$
+                \EndIf
+            \EndFor
+        \EndFor
+        \State \Return $(max, start, end)$
+    \EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+
+
+
+% EXEMPLO DE CODIGO
+\begin{algorithm}
+\caption{divisão e conquista}
+\label{algo:preencheprimeiroarranjo}
+\begin{algorithmic}[1]
+    \Function{max-cross}{$A, e, m, d$}
+        \State $l\_sum \gets -\infty$
+        \State  $sum \gets 0$
+        \For{$\forall i \in m..e$}
+            \State $sum \gets sum+A[i]$
+            \If{$sum>l\_sum$}
+                \State $l\_sum \gets sum$
+                \State $max\_l \gets i$
+            \EndIf
+        \EndFor
+        \State $r\_sum \gets +\infty$
+        \State $sum \gets 0$
+        \For{$\forall j \in (m+1)..d$}
+            \State $sum \gets sum+A[j]$
+            \If{$sum>r\_sum$}
+                \State $r\_sum \gets sum$
+                \State $max\_r \gets j$
+            \EndIf
+        \EndFor
+        \State \Return $(max\_l, max\_r, l\_sum+r\_sum)$
+    \EndFunction
+    \State
+    \Function{max-subarray}{$A,e,d$}
+        \If{e = d}
+            \State \Return $(e,d,A[e])$
+        \EndIf
+        \State $m \gets \lfloor(e+d)/2\rfloor$
+        \State $(l\_esq, l\_dir, l\_sum) \gets$ MAX-SUBARRAY$(A,e,m)$
+        \State $(r\_esq, r\_dir, r\_sum) \gets$ MAX-SUBARRAY$(A,m+1,d)$
+        \State $(c\_esq, c\_dir, c\_sum) \gets$ MAX-CROSS$(A,e,m,d)$
+        \If{$(l\_sum \geq r\_sum) \land (l\_sum \geq c\_sum)$}
+            \State \Return $(l\_esq, l\_dir, l\_sum)$
+        \ElsIf{$(r\_sum \geq l\_sum) \land (r\_sum \geq c\_sum)$}
+            \State \Return $(r\_esq, r\_dir, r\_sum)$
+        \Else
+            \State \Return $(c\_esq, c\_dir, c\_sum)$
+        \EndIf
+    \EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+
+
+
+\begin{algorithm}
+\caption{programação dinâmica (Kadane's algorithm)}
+\label{algo:preencheprimeiroarranjo}
+\begin{algorithmic}[1]
+    \Function{max-subarray}{$v$}
+        \State $current \gets maximum \gets v[1]$
+        \For{$\forall x \in v$}
+            \State $current \gets max(x, current + x)$
+            \State $maximum \gets max(maximum, current)$
+        \EndFor
+        \State \Return maximum
+    \EndFunction
+\end{algorithmic}
+\end{algorithm}
